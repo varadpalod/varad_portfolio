@@ -1,0 +1,13 @@
+# dependencies (recreated by `npm install` from package.json + package-lock.json)
+node_modules/
+
+# build output (recreated by `npm run build`; the host builds it for you)
+dist/
+
+# local/editor junk
+.DS_Store
+*.log
+.env
+.env.*
+.vscode/
+.idea/
