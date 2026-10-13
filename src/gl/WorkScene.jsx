@@ -13,6 +13,8 @@ const FOLDER_H = 2.5
 // Folders fan out inside the box; the spacing shrinks as more are added so any count fits.
 const SPAN_Y = 0.84
 const SPAN_Z = 1.26
+// folders further back are taller, so their tops (and tabs) stand clear of the ones in front
+const EXTRA_H = 0.75
 
 function Folder({ project, index }) {
   const group = useRef()
@@ -21,7 +23,9 @@ function Folder({ project, index }) {
 
   const n = PROJECTS.length
   const t = n > 1 ? index / (n - 1) : 0
-  const baseY = -0.53 + t * SPAN_Y
+  const extra = t * EXTRA_H
+  const folderH = FOLDER_H + extra
+  const baseY = -0.53 + t * SPAN_Y + extra / 2
   const baseZ = 0.52 - t * SPAN_Z
   const tabW = n > 4 ? 1.38 : 1.72
   const tabX = -1.1 + t * (n > 4 ? 2.2 : 2.19) - (n > 4 ? 0.35 : 0)
@@ -54,8 +58,8 @@ function Folder({ project, index }) {
         useUI.getState().openCase(index)
       }}
     >
-      <Slab w={FOLDER_W} h={FOLDER_H} r={0.14} d={0.07} color={project.folder} outline={0.03} />
-      <Slab w={tabW} h={0.34} r={0.12} d={0.07} color={project.folder} outline={0.03} position={[tabX, FOLDER_H / 2 + 0.1, 0]} />
+      <Slab w={FOLDER_W} h={folderH} r={0.14} d={0.07} color={project.folder} outline={0.03} />
+      <Slab w={tabW} h={0.34} r={0.12} d={0.07} color={project.folder} outline={0.03} position={[tabX, folderH / 2 + 0.1, 0]} />
       <Text
         font={FONT}
         fontSize={0.125}
@@ -63,7 +67,7 @@ function Folder({ project, index }) {
         anchorX="center"
         anchorY="middle"
         letterSpacing={0.05}
-        position={[tabX, FOLDER_H / 2 + 0.1, 0.1]}
+        position={[tabX, folderH / 2 + 0.1, 0.1]}
       >
         {project.folderLabel}
       </Text>
