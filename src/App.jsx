@@ -1,7 +1,7 @@
 import { Component, lazy, Suspense, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { PROJECTS, PROCESS, KEYS, EMAIL, STACK, STACK_CATS, stackCols } from './data.js'
+import { PROJECTS, MORE, PROCESS, KEYS, EMAIL, LINKS, STACK, STACK_CATS, stackCols } from './data.js'
 import { playKey } from './audio.js'
 import { go, reduceMotion, useUI } from './store.js'
 
@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger)
 const Scene = lazy(() => import('./gl/Scene.jsx'))
 
 const MARQUEE =
-  'Scalable architectures. Robust systems. · I engineer efficient digital solutions from backend APIs to machine learning models. · Pick a key or scroll down. ·'
+  'Scalable architectures. Robust systems. · Backend APIs, data products and applied machine learning. · Explore the keyboard or scroll to see my work. ·'
 
 const Icon = ({ children }) => (
   <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -150,7 +150,7 @@ function Loader() {
           </span>
         ))}
       </div>
-      <p className="ld-text">Warming up the keyboard…</p>
+      <p className="ld-text">Loading portfolio…</p>
     </div>
   )
 }
@@ -209,9 +209,9 @@ function Work() {
     <section id="work" aria-labelledby="work-title">
       <div className="section-inner">
         <h2 className="section-title reveal" id="work-title">
-          Projects I’ve engineered
+          Selected work
         </h2>
-        <p className="section-sub reveal">A collection of scalable backends, ML pipelines, and robust systems.</p>
+        <p className="section-sub reveal">Applied machine learning, data products and backend systems, built end to end.</p>
 
         <div className="work-grid">
           <div className="pills">
@@ -243,6 +243,14 @@ function Work() {
           </div>
           <div id="box-anchor" aria-hidden="true" />
         </div>
+        <p className="more-work reveal">
+          <span>Also on GitHub:</span>
+          {MORE.map((m) => (
+            <a key={m.name} href={m.href} target="_blank" rel="noopener noreferrer">
+              {m.name} <em>{m.note}</em> ↗
+            </a>
+          ))}
+        </p>
       </div>
     </section>
   )
@@ -331,7 +339,7 @@ function Stack() {
           The toolkit
         </h2>
         <p className="section-sub reveal">
-          Backend-first, data-curious. Tap a category, or any key, to light up the stack I reach for.
+          Technologies I have used across these projects. Select a category, or any key, to highlight it.
         </p>
         <div className="filters reveal" role="group" aria-label="Filter the toolkit by category">
           {cats.map((c) => (
@@ -370,20 +378,20 @@ function Contact() {
       <div className="section-inner contact-grid">
         <div className="contact-copy">
           <h2 id="contact-title" className="reveal">
-            Let’s build something scalable. Get in touch.
+            Open to opportunities. Let’s connect.
           </h2>
           <a className="mail reveal" href={`mailto:${EMAIL}`}>
             {EMAIL}
           </a>
           <div className="socials reveal">
-            <a href="#" aria-label="GitHub (placeholder link)">
-              [ GitHub ↗ ]
+            <a href={LINKS.github} target="_blank" rel="noopener noreferrer">
+              GitHub ↗
             </a>
-            <a href="#" aria-label="LinkedIn (placeholder link)">
-              [ LinkedIn ↗ ]
+            <a href={LINKS.linkedin} target="_blank" rel="noopener noreferrer">
+              LinkedIn ↗
             </a>
-            <a href="#" aria-label="LeetCode (placeholder link)">
-              [ LeetCode ↗ ]
+            <a href={LINKS.leetcode} target="_blank" rel="noopener noreferrer">
+              LeetCode ↗
             </a>
           </div>
         </div>
@@ -419,8 +427,8 @@ function AboutDialog() {
           About Varad
         </h2>
         <p>
-          Hi, I’m Varad. I’m a Software Development Engineer passionate about building scalable backend architectures, intelligent data
-          pipelines, and clean, resilient systems. I turn complex logic into fast, reliable software.
+          Hi, I’m Varad. I’m a Software Development Engineer who builds backend services, data products and applied machine learning
+          systems. I care about clean architecture, reliable delivery and shipping software that people can depend on.
         </p>
       </div>
     </dialog>
@@ -452,19 +460,23 @@ function CaseDialog() {
               <li key={t}>{t}</li>
             ))}
           </ul>
-          <h4>The Problem</h4>
+          <h4>Problem</h4>
           <p>{p.problem}</p>
-          <h4>The Architecture</h4>
+          <h4>Architecture</h4>
           <p>{p.arch}</p>
-          <h4>The Solution</h4>
+          <h4>Outcome</h4>
           <p>{p.solution}</p>
           <div className="links">
-            <a href="#" aria-label="GitHub repository (placeholder)">
-              [ GitHub Repo ↗ ]
-            </a>
-            <a href="#" aria-label="Live demo (placeholder)">
-              [ Live Demo ↗ ]
-            </a>
+            {p.repo && (
+              <a href={p.repo} target="_blank" rel="noopener noreferrer">
+                GitHub repo ↗
+              </a>
+            )}
+            {p.demo && (
+              <a href={p.demo} target="_blank" rel="noopener noreferrer">
+                Live demo ↗
+              </a>
+            )}
           </div>
         </div>
       )}

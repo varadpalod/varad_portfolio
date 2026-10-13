@@ -10,17 +10,21 @@ import { playKey } from '../audio.js'
 /* Everything below is authored on a 5.2 x 4.3 board (the box anchor's aspect). */
 const FOLDER_W = 3.9
 const FOLDER_H = 2.5
-const STEP_Y = 0.28
-const STEP_Z = 0.42
+// Folders fan out inside the box; the spacing shrinks as more are added so any count fits.
+const SPAN_Y = 0.84
+const SPAN_Z = 1.26
 
 function Folder({ project, index }) {
   const group = useRef()
   const [hover, setHover] = useState(false)
   useCursor(hover)
 
-  const baseY = -0.53 + index * STEP_Y
-  const baseZ = 0.52 - index * STEP_Z
-  const tabX = -1.1 + index * 0.73
+  const n = PROJECTS.length
+  const t = n > 1 ? index / (n - 1) : 0
+  const baseY = -0.53 + t * SPAN_Y
+  const baseZ = 0.52 - t * SPAN_Z
+  const tabW = n > 4 ? 1.38 : 1.72
+  const tabX = -1.1 + t * (n > 4 ? 2.2 : 2.19) - (n > 4 ? 0.35 : 0)
 
   useFrame((_, dt) => {
     const hp = useUI.getState().hoverProject
@@ -51,7 +55,7 @@ function Folder({ project, index }) {
       }}
     >
       <Slab w={FOLDER_W} h={FOLDER_H} r={0.14} d={0.07} color={project.folder} outline={0.03} />
-      <Slab w={1.72} h={0.34} r={0.12} d={0.07} color={project.folder} outline={0.03} position={[tabX, FOLDER_H / 2 + 0.1, 0]} />
+      <Slab w={tabW} h={0.34} r={0.12} d={0.07} color={project.folder} outline={0.03} position={[tabX, FOLDER_H / 2 + 0.1, 0]} />
       <Text
         font={FONT}
         fontSize={0.125}
