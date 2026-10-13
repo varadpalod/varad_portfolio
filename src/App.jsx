@@ -1,7 +1,7 @@
 import { Component, lazy, Suspense, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { PROJECTS, MORE, PROCESS, KEYS, EMAIL, LINKS, STACK, STACK_CATS, stackCols } from './data.js'
+import { PROJECTS, PROCESS, KEYS, EMAIL, LINKS, STACK, STACK_CATS, stackCols } from './data.js'
 import { playKey } from './audio.js'
 import { go, reduceMotion, useUI } from './store.js'
 
@@ -243,14 +243,6 @@ function Work() {
           </div>
           <div id="box-anchor" aria-hidden="true" />
         </div>
-        <p className="more-work reveal">
-          <span>Also on GitHub:</span>
-          {MORE.map((m) => (
-            <a key={m.name} href={m.href} target="_blank" rel="noopener noreferrer">
-              {m.name} <em>{m.note}</em> ↗
-            </a>
-          ))}
-        </p>
       </div>
     </section>
   )

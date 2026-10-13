@@ -8,31 +8,13 @@ export const LINKS = {
 export const PROJECTS = [
   {
     num: '01',
-    title: 'Project AEGIS',
-    pillTitle: 'Project AEGIS (JARVIS)',
-    desc: 'Secure, voice-driven personal AI assistant with face and voice authentication and permission-gated agents.',
-    card: '#F1EDFF',
-    numColor: '#7665B5',
-    folder: '#C9B8FF',
-    folderLabel: '01 / AEGIS',
-    stack: ['Python', 'FastAPI', 'OpenCV', 'Gemini', 'SQLAlchemy', 'React'],
-    problem:
-      'Most AI assistants act on any prompt with no notion of who is speaking or how risky the request is. Deleting a file should need stronger proof of identity than asking for the weather.',
-    arch:
-      'A FastAPI backend with JWT and bcrypt auth, tiered security levels (password, PIN, voice print, face) and an audit log. A planner decomposes each prompt into steps for file, browser, coding and vault agents, and a security gateway blocks any step above the session level. Face verification uses OpenCV YuNet detection and SFace embeddings, and Gemini also screens prompts for injection, with a rule-based fallback.',
-    solution:
-      'A working end-to-end prototype: a multi-stage voice pipeline (wake word, speech recognition, intent analysis, security gateway, tool runtime), a memory service that feeds past preferences back into prompts, and a React console with wake-word listening and a live audit trail. Written up in a full product requirements spec.',
-    repo: 'https://github.com/varadpalod/inevitable'
-  },
-  {
-    num: '02',
     title: 'Optimal Execution Engine',
     pillTitle: 'Optimal Execution Engine',
     desc: 'Reinforcement-learning agent that sells large orders at lower cost than TWAP, tested on real Binance data.',
-    card: '#FFF1AD',
-    numColor: '#9D7720',
-    folder: '#FFF1AD',
-    folderLabel: '02 / EXECUTION',
+    card: '#F1EDFF',
+    numColor: '#7665B5',
+    folder: '#C9B8FF',
+    folderLabel: '01 / EXECUTION',
     stack: ['Python', 'PyTorch', 'Stable-Baselines3', 'Gymnasium', 'FastAPI', 'React'],
     problem:
       'Selling a large order in one go moves the market against you. The goal is to split it over time so the total price is as good as possible.',
@@ -41,6 +23,24 @@ export const PROJECTS = [
     solution:
       'On held-out real data the SAC agent beat TWAP by about 1.7 bps in 71% of episodes. Under much harsher limit-order fill assumptions the edge shrank to about 0.4 bps, which is reported openly. VWAP and Almgren-Chriss did not beat TWAP.',
     repo: 'https://github.com/varadpalod/trade-book'
+  },
+  {
+    num: '02',
+    title: 'Project AEGIS',
+    pillTitle: 'Project AEGIS (JARVIS)',
+    desc: 'Secure, voice-driven personal AI assistant with face and voice authentication and permission-gated agents.',
+    card: '#FFF1AD',
+    numColor: '#9D7720',
+    folder: '#FFF1AD',
+    folderLabel: '02 / AEGIS',
+    stack: ['Python', 'FastAPI', 'OpenCV', 'Gemini', 'SQLAlchemy', 'React'],
+    problem:
+      'Most AI assistants act on any prompt with no notion of who is speaking or how risky the request is. Deleting a file should need stronger proof of identity than asking for the weather.',
+    arch:
+      'A FastAPI backend with JWT and bcrypt auth, tiered security levels (password, PIN, voice print, face) and an audit log. A planner decomposes each prompt into steps for file, browser, coding and vault agents, and a security gateway blocks any step above the session level. Face verification uses OpenCV YuNet detection and SFace embeddings, and Gemini also screens prompts for injection, with a rule-based fallback.',
+    solution:
+      'A working end-to-end prototype: a multi-stage voice pipeline (wake word, speech recognition, intent analysis, security gateway, tool runtime), a memory service that feeds past preferences back into prompts, and a React console with wake-word listening and a live audit trail. Written up in a full product requirements spec.',
+    repo: 'https://github.com/varadpalod/inevitable'
   },
   {
     num: '03',
