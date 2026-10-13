@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger)
 const Scene = lazy(() => import('./gl/Scene.jsx'))
 
 const MARQUEE =
-  'Scalable architectures. Robust systems. · Backend APIs, data products and applied machine learning. · Explore the keyboard or scroll to see my work. ·'
+  'Secure backends. Honest evaluation. · FastAPI, Python and applied machine learning, from trading agents to AI assistants. · Explore the keyboard or scroll to see my work. ·'
 
 const Icon = ({ children }) => (
   <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -173,9 +173,9 @@ function Hero() {
     <section id="hero" className="hero" aria-labelledby="hero-title">
       <h1 id="hero-title">
         <span>Hi, I’m Varad.</span>
-        <span>Building robust backends and</span>
+        <span>I build secure backends and</span>
         <span>
-          <em>intelligent systems.</em>
+          <em>data-driven systems.</em>
         </span>
       </h1>
 
@@ -211,7 +211,7 @@ function Work() {
         <h2 className="section-title reveal" id="work-title">
           Selected work
         </h2>
-        <p className="section-sub reveal">Applied machine learning, data products and backend systems, built end to end.</p>
+        <p className="section-sub reveal">From a reinforcement-learning trading agent to a security-gated AI assistant: backend systems built around data, models and trust.</p>
 
         <div className="work-grid">
           <div className="pills">
@@ -265,7 +265,7 @@ function Process() {
         <h2 className="section-title reveal" id="process-title">
           My engineering process
         </h2>
-        <p className="section-sub reveal">Architect the system. Write clean code. Deploy to scale.</p>
+        <p className="section-sub reveal">Model it. Build it in layers. Prove it works.</p>
 
         <div className="process-frame">
           {PROCESS.map((p, i) => (
@@ -419,8 +419,12 @@ function AboutDialog() {
           About Varad
         </h2>
         <p>
-          Hi, I’m Varad. I’m a Software Development Engineer who builds backend services, data products and applied machine learning
-          systems. I care about clean architecture, reliable delivery and shipping software that people can depend on.
+          Hi, I’m Varad, a software engineer who likes systems where the engineering around the model matters. I’ve built a
+          reinforcement-learning trade execution engine, a face- and voice-authenticated AI assistant, a sentiment-driven real-estate
+          forecaster and compliance tooling, mostly in Python with FastAPI and React.
+        </p>
+        <p>
+          I care about clean architecture, honest evaluation and audit trails: baselines before bragging, and a log of every decision.
         </p>
       </div>
     </dialog>

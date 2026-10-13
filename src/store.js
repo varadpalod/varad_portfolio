@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import { EMAIL, LINKS } from './data.js'
 
 const read = (k, d) => {
   try {
@@ -63,9 +64,25 @@ export const useUI = create((set) => ({
 export const reduceMotion =
   typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
+const EXTERNAL = { github: LINKS.github, leetcode: LINKS.leetcode, linkedin: LINKS.linkedin }
+
+/** What a keyboard key (or its keyboard-accessible twin) does. */
 export function go(id) {
   if (id === 'about') {
     useUI.getState().setAbout(true)
+    return
+  }
+  if (id === 'featured') {
+    // the first project is the one to lead with
+    useUI.getState().openCase(0)
+    return
+  }
+  if (id === 'email') {
+    window.location.href = `mailto:${EMAIL}`
+    return
+  }
+  if (EXTERNAL[id]) {
+    window.open(EXTERNAL[id], '_blank', 'noopener,noreferrer')
     return
   }
   const el = document.getElementById(id)

@@ -116,6 +116,8 @@ export const PROJECTS = [
   }
 ]
 
+// Every key does something different. Actions: work / about / process / stack / contact scroll or open a panel,
+// featured opens the first case study, github / leetcode / linkedin open your profiles, email opens a new mail.
 // Coordinates come straight from the design spec (px on a 900 x 312 board).
 // Order matches the auto-typing sequence: P O R T F O L I O Enter.
 export const KEYS = [
@@ -123,18 +125,18 @@ export const KEYS = [
   { letter: 'O', label: 'About', x: 219, y: 0, w: 178, h: 173, face: '#c8b6ff', base: '#7153c7', action: 'about', layer: 0.2 },
   { letter: 'R', label: 'Process', x: 365, y: 0, w: 178, h: 173, face: '#b9f2df', base: '#2caa85', action: 'process', layer: 0.2 },
   { letter: 'T', label: 'Toolkit', x: 511, y: 0, w: 178, h: 173, face: '#ffd98e', base: '#d28a24', action: 'stack', layer: 0.2 },
-  { letter: 'F', label: 'Projects', x: 0, y: 139, w: 178, h: 173, face: '#a9ddff', base: '#3886c9', action: 'work', layer: 0.5 },
-  { letter: 'O', label: 'Background', x: 146, y: 139, w: 178, h: 173, face: '#f4b8ff', base: '#a34cbf', action: 'about', layer: 0.5 },
-  { letter: 'L', label: 'Workflow', x: 292, y: 139, w: 178, h: 173, face: '#ffc3a0', base: '#d96c44', action: 'process', layer: 0.5 },
-  { letter: 'I', label: 'Skills', x: 438, y: 139, w: 178, h: 173, face: '#c6d7ff', base: '#5a78c9', action: 'stack', layer: 0.5 },
+  { letter: 'F', label: 'GitHub', x: 0, y: 139, w: 178, h: 173, face: '#a9ddff', base: '#3886c9', action: 'github', layer: 0.5 },
+  { letter: 'O', label: 'Top Project', x: 146, y: 139, w: 178, h: 173, face: '#f4b8ff', base: '#a34cbf', action: 'featured', layer: 0.5 },
+  { letter: 'L', label: 'LeetCode', x: 292, y: 139, w: 178, h: 173, face: '#ffc3a0', base: '#d96c44', action: 'leetcode', layer: 0.5 },
+  { letter: 'I', label: 'LinkedIn', x: 438, y: 139, w: 178, h: 173, face: '#c6d7ff', base: '#5a78c9', action: 'linkedin', layer: 0.5 },
   { letter: 'O', label: 'Contact', x: 584, y: 139, w: 178, h: 173, face: '#d9f28f', base: '#7aa52d', action: 'contact', layer: 0.5 },
-  { letter: 'LET’S TALK', label: '', x: 657, y: 0, w: 218, h: 300, face: '#ffe446', base: '#eab800', action: 'contact', layer: 0, vertical: true }
+  { letter: 'LET’S TALK', label: '', x: 657, y: 0, w: 218, h: 300, face: '#ffe446', base: '#eab800', action: 'email', layer: 0, vertical: true }
 ]
 
 export const PROCESS = [
-  { kicker: '01 / ARCHITECT', title: 'System Design.', text: 'Define data models, evaluate constraints, and blueprint scalable API interactions.', sticker: 'Scalability First', tint: '#ffe0ee', sticky: '#ffb7d5' },
-  { kicker: '02 / ENGINEER', title: 'Implementation.', text: 'Write clean, testable logic, build robust pipelines, and optimize algorithmic efficiency.', sticker: 'Clean, Tested Code', tint: '#d9f7ec', sticky: '#b9f2df' },
-  { kicker: '03 / DEPLOY', title: 'Ship & Monitor.', text: 'Establish CI/CD pipelines, ensure containerized deployment, and monitor system health.', sticker: 'CI/CD Pipeline', tint: '#fff0cf', sticky: '#ffd98e' }
+  { kicker: '01 / MODEL', title: 'Design first.', text: 'Write the spec and data model first. AEGIS began as a full requirements document.', sticker: 'Spec First', tint: '#ffe0ee', sticky: '#ffb7d5' },
+  { kicker: '02 / BUILD', title: 'Layer it.', text: 'Keep routers, services and models separate, with guardrails built in: permission levels and thresholds.', sticker: 'Layered Code', tint: '#d9f7ec', sticky: '#b9f2df' },
+  { kicker: '03 / EVALUATE', title: 'Measure honestly.', text: 'Compare against simple baselines on held-out data, report the smaller number, and keep an audit trail.', sticker: 'Audit Trail', tint: '#fff0cf', sticky: '#ffd98e' }
 ]
 
 export const EMAIL = 'varadpalod12@gmail.com'
